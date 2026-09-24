@@ -1,4 +1,4 @@
-population	genomes	genomes_before_trim	clonal_dropped	variants	nonsyn	syn	seconds_ld	failed_stage
-BF	37	37	0	36840	5883	30957	8.8	scan
-AG	29	29	0	37097	6984	30113	7.2	scan
-GH	29	29	0	36747	5664	31083	6.7	scan
+population	genomes	genomes_before_trim	clonal_dropped	variants	nonsyn	syn	seconds_ld	tract_length_pooled	l_DD_used	window_size	num_bins	windows_scanned	significant_windows	sweeps	seconds_scan
+BF	37	37	0	36840	5883	30957	8.2	19250.798326833727	88653.2025112041	332	1098	43	0	0	3.3
+AG	29	29	0	37097	6984	30113	7.3	19250.798326833727	88653.2025112041	363	1314	165	0	0	12.9
+GH	29	29	0	36747	5664	31083	7.0	19250.798326833727	88653.2025112041	306	933	49	0	0	2.8
