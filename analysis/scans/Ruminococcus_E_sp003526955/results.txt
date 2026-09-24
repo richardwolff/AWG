@@ -1,0 +1,13 @@
+population	genomes	genomes_before_trim	clonal_dropped	variants	nonsyn	syn	seconds_ld	failed_stage
+AG	97	97	0	10024	2402	7622	12.7	scan
+China	80	80	0	8551	1957	6594	13.4	scan
+Denmark	74	74	0	8899	2105	6794	11.3	scan
+US	60	60	0	9407	2219	7188	10.5	scan
+DM	44	44	0	9230	2175	7055	9.0	scan
+SW	41	41	0	9044	2154	6890	8.6	scan
+KY	39	39	0	9928	2319	7609	8.5	scan
+Netherlands	36	36	0	8938	2117	6821	8.3	scan
+BF	35	35	0	17619	3900	13719	8.2	scan
+Israel	32	32	0	8278	1925	6353	8.1	scan
+GH	22	22	0	15568	2926	12642	7.7	scan
+Spain	21	21	0	8566	2006	6560	7.0	scan

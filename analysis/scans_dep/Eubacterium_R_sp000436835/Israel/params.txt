@@ -1,0 +1,5 @@
+	0
+tract_length	2720.617108743859
+rescaled_recombination	7.617440135425864e-05
+constant	0.5249676395999912
+decay_points	12528.90479667634

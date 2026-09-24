@@ -1,0 +1,16 @@
+Population	all	good_strain	good_population	in_alignment	clonal_representatives	scanned
+BF	52	52	52	52	52	True
+AG	35	35	35	35	35	True
+KY	35	35	35	35	35	True
+GH	12	12	12	12	12	False
+DM	7	7	7	7	7	False
+Fiji	19	17	17	7	7	False
+SW	3	3	3	3	3	False
+Denmark	4	2	2	1	1	False
+UK	1	1	1	1	1	False
+Bangladesh	1	0	0	0	0	False
+China	1	1	1	0	0	False
+ElSalvador	2	2	0	0	0	False
+Israel	1	1	1	0	0	False
+Kazakhstan	1	1	1	0	0	False
+Madagascar	6	6	0	0	0	False

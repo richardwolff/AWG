@@ -1,0 +1,4 @@
+population	genomes	genomes_before_trim	clonal_dropped	variants	nonsyn	syn	seconds_ld	tract_length_pooled	l_DD_used	window_size	num_bins	windows_scanned	significant_windows	sweeps	seconds_scan
+BF	135	135	0	8983	2928	6055	6.5	29013.62748594004	133612.6922856157	208	430	143	0	0	1.8
+GH	54	54	0	8826	2875	5951	4.4	29013.62748594004	133612.6922856157	201	402	165	0	0	1.5
+AG	24	24	0	11394	3408	7986	2.9	29013.62748594004	133612.6922856157	243	588	133	0	0	1.9

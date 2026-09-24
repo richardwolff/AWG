@@ -1,0 +1,54 @@
+#!/bin/bash
+#$ -e /u/home/r/rwolff/AWG/output/
+#$ -o /u/home/r/rwolff/AWG/output/
+#$ -cwd
+#$ -N ilds_scan
+#$ -l h_data=8G
+#$ -l time=23:00:00
+#$ -l highp
+#$ -pe shared 4
+#$ -t 1:51
+
+## One task per species in good_species.txt. Each task scans every population
+## of that species: run_species.py loops over the populations itself, because
+## the species level tract length has to be fit across all of them before any
+## one of them can be scanned.
+##
+## The task range must cover the species list. Check it with:
+##     wc -l < metadata/good_species.txt
+##
+## Results are written to config.scan_directory/<species>/<population>, and
+## alignments are read from config.haplotype_dir % species, so nothing but the
+## species name needs to be passed. Everything else -- min_genomes, core genes,
+## clonal trimming, the frequency cutoff -- comes from the iLDS scan parameters
+## block in config.py.
+
+. /u/local/Modules/default/init/modules.sh
+module load anaconda3
+
+conda activate genetic_diversity_utils
+
+SPECIES_FILE=${SPECIES_FILE:-metadata/good_species.txt}
+
+## good_species.txt is a plain one-per-line list with no header, so task N is
+## line N
+species=$(sed -n "${SGE_TASK_ID}p" "$SPECIES_FILE" | cut -f1 | tr -d '[:space:]')
+
+if [ -z "$species" ]; then
+    echo "task ${SGE_TASK_ID}: no species on line ${SGE_TASK_ID} of ${SPECIES_FILE}, nothing to do"
+    exit 0
+fi
+
+## the LD kernels are threaded; keep them inside the slots the scheduler gave us
+export NUMBA_NUM_THREADS=${NSLOTS:-1}
+export OMP_NUM_THREADS=${NSLOTS:-1}
+export OPENBLAS_NUM_THREADS=${NSLOTS:-1}
+export MKL_NUM_THREADS=${NSLOTS:-1}
+
+echo "task ${SGE_TASK_ID}: ${species} on ${NSLOTS:-1} slots, started $(date)"
+
+python run_species.py --species "$species"
+status=$?
+
+echo "task ${SGE_TASK_ID}: ${species} exited ${status} at $(date)"
+exit $status

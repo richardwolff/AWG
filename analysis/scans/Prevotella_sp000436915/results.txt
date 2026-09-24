@@ -1,0 +1,4 @@
+population	genomes	genomes_before_trim	clonal_dropped	variants	nonsyn	syn	seconds_ld	failed_stage
+BF	37	37	0	36840	5883	30957	8.8	scan
+AG	29	29	0	37097	6984	30113	7.2	scan
+GH	29	29	0	36747	5664	31083	6.7	scan

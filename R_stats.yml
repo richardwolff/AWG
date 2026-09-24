@@ -1,0 +1,35 @@
+# Conda environment for the R side of the iLDS pipeline
+# (sweep_pairtype_per_species_zibeta_glmmTMB.R).
+#
+#   conda env create -f R_stats.yml
+#   conda activate R_stats
+#   Rscript sweep_pairtype_per_species_zibeta_glmmTMB.R
+#
+# Every R package here is conda-managed, so this reproduces the environment on
+# its own -- nothing was installed separately with install.packages().
+#
+# Pinned to minor version rather than to conda build strings, so the same file
+# resolves on linux-64 for the cluster as well as osx-arm64.
+#
+# r-tmb is pinned deliberately. r-glmmtmb only requires `r-tmb >=1.9.0`, so a
+# fresh solve picks up a newer TMB than glmmTMB was compiled against and every
+# run then opens with a "package version mismatch" warning. 1.9.19 is the
+# version the 1.1.14 binary was built with, which silences it.
+#
+# bioconductor-curatedmetagenomicdata is part of this environment but is not
+# used by the iLDS scripts; drop that line for a much smaller install if the
+# model script is all you need.
+
+name: R_stats
+
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - r-base=4.5.3
+  - r-glmmtmb=1.1.14
+  - r-tmb=1.9.19
+  - r-tidyverse=2.0.0
+  - bioconductor-curatedmetagenomicdata=3.18.0
